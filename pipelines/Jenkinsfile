@@ -8,7 +8,12 @@ pipeline {
     //     course="Devops"
     // }
     environment {
-        COURSE = "Devops"
+        COURSE = "Devops" 
+        // this enviornment variables we can in any stage and env also, it will show all the default env 
+    }
+    options {
+        timeout (time: 1 , unit: 'HOURS') 
+        // This options function used to set the time limit to our pipeline
     }
 
 
@@ -47,6 +52,9 @@ pipeline {
         }
         failure{
             echo "pipelines failed"
+        }
+        aborted {
+            echo " pipeline aborted"
         }
     }
 }
