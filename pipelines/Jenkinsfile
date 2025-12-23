@@ -4,8 +4,11 @@ pipeline {
             label 'basha'
         }
     } 
-    enviornment{
-        course="Devops"
+    // enviornment {
+    //     course="Devops"
+    // }
+    environment {
+        COURSE = "Devops"
     }
 
 
@@ -16,7 +19,7 @@ pipeline {
                 script{
                     sh """
                         echo "hello I am building"
-                        echo $course
+                        echo $COURSE
                     """
                 }
                 
