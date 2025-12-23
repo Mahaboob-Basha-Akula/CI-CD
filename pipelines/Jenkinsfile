@@ -24,7 +24,7 @@ pipeline {
     post{
         always{
             echo "pipelines done"
-            cleanws()
+            cleanWs()
         }
         success {
             echo "pipelines build"
