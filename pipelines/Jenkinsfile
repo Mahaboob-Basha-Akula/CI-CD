@@ -10,14 +10,22 @@ pipeline {
     stages {
         stage('Build') {
             steps{
-                echo "hello I am pipeline"
+                script{
+                    sh """
+                        echo "hello I am pipeline"
+                    """
+                }
+                
 
             }
         }
          stage('Test') {
             steps{
-                echo "hello I am testing"
-
+                script{
+                    sh """
+                        echo "hello I am pipeline"
+                    """
+                }
             }
         }   
     }
