@@ -24,6 +24,13 @@ pipeline {
     post{
         always{
             echo "pipelines done"
+            cleanws()
+        }
+        success {
+            echo "pipelines build"
+        }
+        failure{
+            echo "pipelines failed"
         }
     }
 }
