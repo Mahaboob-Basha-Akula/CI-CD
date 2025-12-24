@@ -12,10 +12,10 @@ pipeline {
         PROJECT = "roboshop"
         COMPONENT = "catalogue"
     }
-    
+
     stages {
-        stage{
-            steps ('Read version') {
+        stage ('Read version') {
+            steps {
                 script {
                     def packageJSON = readJSON file: 'package.json'
                     apiversion = packageJSON.version
@@ -23,8 +23,8 @@ pipeline {
                 }
             }
         }
-        stage {
-            steps ('Install Dependencies') {
+        stage ('Install Dependencies') {
+            steps {
                 script {
                     sh """
                     npm install
