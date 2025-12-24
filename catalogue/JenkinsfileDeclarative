@@ -1,0 +1,52 @@
+pipeline {
+    agent {
+        node {
+            label 'Agent'
+    }
+
+    }
+    environment {
+        COURSE = "Jenkins"
+        apiVersion = ""
+        ACC_ID = "160885265516"
+        PROJECT = "roboshop"
+        COMPONENT = "catalogue"
+    }
+
+    stages {
+        stage ('Read version') {
+            steps {
+                script {
+                    def packageJSON = readJSON file: 'package.json'
+                    apiVersion = packageJSON.version
+                    echo "api version: ${apiVersion}"
+                }
+            }
+        }
+        stage ('Install Dependencies') {
+            steps {
+                script {
+                    sh """
+                    npm install
+                    echo "npm dependencies installed"
+                    """
+                }
+
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+        success {
+            echo "Catalogue pipeline runs successfully"
+        }
+        failure {
+            echo "Catalogue pipeline failed"
+        }
+        aborted {
+            echo "Catalogue pipeline aborted"
+        }
+    }
+}
