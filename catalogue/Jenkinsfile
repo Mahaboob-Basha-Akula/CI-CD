@@ -1,6 +1,9 @@
 pipeline {
-    node {
-        label 'Agent'
+    agent {
+        node {
+            label 'Agent'
+    }
+
     }
     environment {
         COURSE = "Jenkins"
@@ -9,6 +12,7 @@ pipeline {
         PROJECT = "roboshop"
         COMPONENT = "catalogue"
     }
+    
     stages {
         stage{
             steps ('Read version') {
