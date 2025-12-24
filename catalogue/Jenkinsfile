@@ -30,9 +30,13 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script{
-                    sh """
+                    dir('catalogue') {
+                        sh """
                         npm install
-                    """
+                        
+                        """
+                    }
+                    
                 }
             }
         }
