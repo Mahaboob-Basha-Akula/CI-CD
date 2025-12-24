@@ -10,3 +10,11 @@ sudo systemctl status jenkins
 echo "jenkins started"
 sudo systemctl enable jenkins
 sudo systemctl daemon-reload
+
+
+#increase the memort for the node-agent
+sudo growpart /dev/nvme0n1p 4
+sudo lvextend -L +15G /dev/mapper/RootVG-homeVol   #home folder
+sudo xfs_growfs /home
+sudo lvextend -L +15G  /dev/mapper/RootVG-rootVol  # root folder
+sudo xfs_growfs /
