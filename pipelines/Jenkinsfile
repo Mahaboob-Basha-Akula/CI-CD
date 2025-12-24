@@ -20,7 +20,7 @@ pipeline {
 
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        booleanParam(name: 'Helm push', defaultValue: true, description: 'Toggle this value')
 
     }
 
