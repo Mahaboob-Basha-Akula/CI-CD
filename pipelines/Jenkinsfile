@@ -15,6 +15,7 @@ pipeline {
         timeout (time: 1 , unit: 'HOURS') 
         // This options function used to set the time limit to our pipeline
     }
+    // this parmaters like inputs which we need to give like versions , images
     parameters {
         booleanParam(name: 'Helm push', defaultValue: true, description: 'Toggle this value')
         string(name: 'Api-version', defaultValue: '', description: 'Enter the apiversion')
